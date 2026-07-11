@@ -1,0 +1,85 @@
+// icons.jsx — clean stroke icon set (24 viewBox, currentColor)
+const Ic = (p) => {
+  const { d, children, fill, vb = 24, sw = 1.8, ...rest } = p;
+  return (
+    <svg viewBox={`0 0 ${vb} ${vb}`} fill={fill || "none"} stroke="currentColor"
+         strokeWidth={sw} strokeLinecap="round" strokeLinejoin="round" {...rest}>
+      {children}
+    </svg>
+  );
+};
+
+const Icons = {
+  dashboard: (p) => <Ic {...p}><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></Ic>,
+  ai: (p) => <Ic {...p}><path d="M12 3l1.6 4.2a4 4 0 0 0 2.3 2.3L20 12l-4.1 1.5a4 4 0 0 0-2.3 2.3L12 20l-1.6-4.2a4 4 0 0 0-2.3-2.3L4 12l4.1-1.5a4 4 0 0 0 2.3-2.3z"/><path d="M19 4v3M20.5 5.5h-3"/></Ic>,
+  leads: (p) => <Ic {...p}><path d="M16 19v-1.5a3.5 3.5 0 0 0-3.5-3.5h-5A3.5 3.5 0 0 0 4 17.5V19"/><circle cx="10" cy="8" r="3.2"/><path d="M20 19v-1.4a3.4 3.4 0 0 0-2.6-3.3M15.5 5.2a3.2 3.2 0 0 1 0 5.9"/></Ic>,
+  deals: (p) => <Ic {...p}><path d="M3 5h18M6 5l1 7.5a2 2 0 0 0 2 1.7h6a2 2 0 0 0 2-1.7L18 5"/><path d="M9 18.5h6M12 14.2V18.5"/></Ic>,
+  pipeline: (p) => <Ic {...p}><path d="M3 5h18l-7 8v6l-4 2v-8z"/></Ic>,
+  projects: (p) => <Ic {...p}><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18M8 4v5M8 13h4M8 16h7"/></Ic>,
+  inbox: (p) => <Ic {...p}><path d="M3 12h4l1.6 2.6a1 1 0 0 0 .85.48h5.1a1 1 0 0 0 .85-.48L17 12h4"/><path d="M5.5 5.5h13l2.5 6.5v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5z"/></Ic>,
+  campaigns: (p) => <Ic {...p}><path d="M3.5 9.5v4a1 1 0 0 0 1 1H7l1.5 4a1 1 0 0 0 .95.7H10a1 1 0 0 0 1-1v-3.7"/><path d="M4.5 9.5l11.5-5v15l-11.5-5"/><path d="M19 9a3 3 0 0 1 0 5.5"/></Ic>,
+  tickets: (p) => <Ic {...p}><path d="M4 7.5A1.5 1.5 0 0 1 5.5 6h13A1.5 1.5 0 0 1 20 7.5v2a2 2 0 0 0 0 5v2a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 16.5v-2a2 2 0 0 0 0-5z"/><path d="M13 6v12" strokeDasharray="2 2.5"/></Ic>,
+  reports: (p) => <Ic {...p}><path d="M4 20V4M4 20h16"/><rect x="7" y="11" width="3" height="6" rx=".7" fill="currentColor" stroke="none"/><rect x="12" y="7" width="3" height="10" rx=".7" fill="currentColor" stroke="none"/><rect x="17" y="13" width="3" height="4" rx=".7" fill="currentColor" stroke="none"/></Ic>,
+  settings: (p) => <Ic {...p}><circle cx="12" cy="12" r="3"/><path d="M12 2.5l1.3 2.2 2.5-.4.5 2.5 2.2 1.3-1 2.3 1 2.3-2.2 1.3-.5 2.5-2.5-.4L12 21.5l-1.3-2.2-2.5.4-.5-2.5-2.2-1.3 1-2.3-1-2.3 2.2-1.3.5-2.5 2.5.4z"/></Ic>,
+
+  search: (p) => <Ic {...p}><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></Ic>,
+  bell: (p) => <Ic {...p}><path d="M6 9a6 6 0 0 1 12 0c0 5 2 6 2 6H4s2-1 2-6"/><path d="M10 19a2 2 0 0 0 4 0"/></Ic>,
+  plus: (p) => <Ic {...p}><path d="M12 5v14M5 12h14"/></Ic>,
+  menu: (p) => <Ic {...p}><path d="M4 6h16M4 12h16M4 18h16"/></Ic>,
+  sidebar: (p) => <Ic {...p}><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M9 4v16"/></Ic>,
+  chevR: (p) => <Ic {...p}><path d="M9 6l6 6-6 6"/></Ic>,
+  chevD: (p) => <Ic {...p}><path d="M6 9l6 6 6-6"/></Ic>,
+  arrowUp: (p) => <Ic {...p}><path d="M12 19V5M6 11l6-6 6 6"/></Ic>,
+  arrowDown: (p) => <Ic {...p}><path d="M12 5v14M6 13l6 6 6-6"/></Ic>,
+  arrowR: (p) => <Ic {...p}><path d="M5 12h14M13 6l6 6-6 6"/></Ic>,
+  trendUp: (p) => <Ic {...p}><path d="M3 17l6-6 4 4 8-8"/><path d="M16 7h5v5"/></Ic>,
+  dots: (p) => <Ic {...p}><circle cx="5" cy="12" r="1.4" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/><circle cx="19" cy="12" r="1.4" fill="currentColor" stroke="none"/></Ic>,
+  filter: (p) => <Ic {...p}><path d="M4 5h16l-6.5 8v5l-3 1.5V13z"/></Ic>,
+  calendar: (p) => <Ic {...p}><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/></Ic>,
+  clock: (p) => <Ic {...p}><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></Ic>,
+  check: (p) => <Ic {...p}><path d="M5 12.5l4.5 4.5L19 6.5"/></Ic>,
+  checkCircle: (p) => <Ic {...p}><circle cx="12" cy="12" r="9"/><path d="M8 12.2l2.6 2.6L16 9.4"/></Ic>,
+  x: (p) => <Ic {...p}><path d="M6 6l12 12M18 6L6 18"/></Ic>,
+  alert: (p) => <Ic {...p}><path d="M12 3l9.5 16.5h-19z"/><path d="M12 9.5v4M12 17h.01"/></Ic>,
+  flame: (p) => <Ic {...p}><path d="M12 3c1 3-1.5 4.5-1.5 7A1.5 1.5 0 0 1 8 8.5C6 10.5 5 12.8 5 15a7 7 0 0 0 14 0c0-3.5-2.2-6-4-7.5-1.2-1-2.5-2.5-3-4.5z"/></Ic>,
+  bolt: (p) => <Ic {...p}><path d="M13 2L4.5 13H11l-1 9 8.5-11H12z" fill="currentColor" stroke="none"/></Ic>,
+  target: (p) => <Ic {...p}><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></Ic>,
+  dollar: (p) => <Ic {...p}><path d="M12 3v18M16.5 6.5C16 5 14.2 4 12 4 9.5 4 7.5 5.3 7.5 7.4c0 4.6 9 2.3 9 7 0 2.1-2 3.6-4.5 3.6-2.4 0-4.3-1.1-4.8-2.7"/></Ic>,
+  building: (p) => <Ic {...p}><rect x="5" y="3" width="14" height="18" rx="1.5"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2M10 21v-3h4v3"/></Ic>,
+  mail: (p) => <Ic {...p}><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M4 7l8 6 8-6"/></Ic>,
+  phone: (p) => <Ic {...p}><path d="M6.5 4h3l1.5 4-2 1.5a11 11 0 0 0 5 5l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A16 16 0 0 1 4.5 6.2 2 2 0 0 1 6.5 4z"/></Ic>,
+  note: (p) => <Ic {...p}><path d="M5 4.5h14a1 1 0 0 1 1 1V15l-4 4.5H6a1 1 0 0 1-1-1z"/><path d="M16 19.5V16a1 1 0 0 1 1-1h3M8.5 9h7M8.5 12.5h4"/></Ic>,
+  user: (p) => <Ic {...p}><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></Ic>,
+  users: (p) => <Ic {...p}><circle cx="9" cy="8" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><path d="M16 6a3 3 0 0 1 0 5.6M16.5 14.5a5.5 5.5 0 0 1 4 4.5"/></Ic>,
+  send: (p) => <Ic {...p}><path d="M21 3L10 14M21 3l-7 18-3.5-7.5L3 10z"/></Ic>,
+  star: (p) => <Ic {...p}><path d="M12 3l2.6 5.6 6 .8-4.4 4.2 1.1 6L12 17l-5.3 2.6 1.1-6L3.4 9.4l6-.8z"/></Ic>,
+  archive: (p) => <Ic {...p}><rect x="3.5" y="4.5" width="17" height="4" rx="1"/><path d="M5 8.5V19a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8.5M10 12.5h4"/></Ic>,
+  reply: (p) => <Ic {...p}><path d="M9 7L4 12l5 5M4 12h9a6 6 0 0 1 6 6v1"/></Ic>,
+  download: (p) => <Ic {...p}><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></Ic>,
+  refresh: (p) => <Ic {...p}><path d="M4 12a8 8 0 0 1 13.5-5.8L20 8M20 4v4h-4M20 12a8 8 0 0 1-13.5 5.8L4 16M4 20v-4h4"/></Ic>,
+  link: (p) => <Ic {...p}><path d="M9 13a4 4 0 0 0 6 .3l2.5-2.5a4 4 0 0 0-5.6-5.6L10.7 6.5M15 11a4 4 0 0 0-6-.3L6.5 13.2a4 4 0 0 0 5.6 5.6l1.1-1.1"/></Ic>,
+  moon: (p) => <Ic {...p}><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5z"/></Ic>,
+  sun: (p) => <Ic {...p}><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M5 5l1.8 1.8M17.2 17.2L19 19M19 5l-1.8 1.8M6.8 17.2L5 19"/></Ic>,
+  sparkle: (p) => <Ic {...p}><path d="M12 4l1.4 4.1a3 3 0 0 0 2 2L19.5 11.5l-4.1 1.4a3 3 0 0 0-2 2L12 19l-1.4-4.1a3 3 0 0 0-2-2L4.5 11.5l4.1-1.4a3 3 0 0 0 2-2z"/></Ic>,
+  folder: (p) => <Ic {...p}><path d="M3.5 6.5a1.5 1.5 0 0 1 1.5-1.5h4l2 2.5h7.5a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5h-14a1.5 1.5 0 0 1-1.5-1.5z"/></Ic>,
+  grid: (p) => <Ic {...p}><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></Ic>,
+  list: (p) => <Ic {...p}><path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></Ic>,
+  eye: (p) => <Ic {...p}><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></Ic>,
+  zap: (p) => <Ic {...p}><path d="M13 2L4.5 13H11l-1 9 8.5-11H12z"/></Ic>,
+  globe: (p) => <Ic {...p}><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.4 2.5 14.6 0 17M12 3.5c-2.5 2.4-2.5 14.6 0 17"/></Ic>,
+  trash: (p) => <Ic {...p}><path d="M4 7h16M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M6 7l1 12.5a1.5 1.5 0 0 0 1.5 1.5h7a1.5 1.5 0 0 0 1.5-1.5L18 7"/></Ic>,
+  edit: (p) => <Ic {...p}><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></Ic>,
+  shield: (p) => <Ic {...p}><path d="M12 3l7 2.5V11c0 4.5-3 8.2-7 9.5C8 19.2 5 15.5 5 11V5.5z"/><path d="M9 12l2 2 4-4"/></Ic>,
+  rocket: (p) => <Ic {...p}><path d="M12 3c3 0 6 3 6 7 0 2-1 4-2 5l-1 4H9l-1-4c-1-1-2-3-2-5 0-4 3-7 6-7z"/><circle cx="12" cy="9" r="1.6"/><path d="M9 17c-2 0-3 2-3 4 2 0 4-1 4-3M15 17c2 0 3 2 3 4-2 0-4-1-4-3"/></Ic>,
+  eye: (p) => <Ic {...p}><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></Ic>,
+eyeOff: (p) => <Ic {...p}><path d="M3 3l18 18"/><path d="M10.6 5.6A10.8 10.8 0 0 1 12 5.5c6 0 9.5 6.5 9.5 6.5a14 14 0 0 1-2.6 3.4M6.7 6.7C4.4 8.3 2.5 12 2.5 12s2.2 4.3 6.2 5.9M9.9 14.1a2.8 2.8 0 0 0 4-4"/></Ic>,
+  moon: (p) => <Ic {...p}><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></Ic>,
+  bell: (p) => <Ic {...p}><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></Ic>,
+  dashboard: (p) => <Ic {...p}><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></Ic>,
+  dollar: (p) => <Ic {...p}><path d="M12 2v20M17 5H9.5a3.5 3.5 0 1 0 0 7h5a3.5 3.5 0 1 1 0 7H6"/></Ic>,
+  campaigns: (p) => <Ic {...p}><path d="M4 4l16 8-16 8V4z"/><path d="M20 12H4"/></Ic>,
+  download: (p) => <Ic {...p}><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></Ic>,
+  ai: (p) => <Ic {...p}><path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/></Ic>,
+};
+
+export default Icons;
