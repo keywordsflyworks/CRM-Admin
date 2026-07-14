@@ -28,32 +28,33 @@ export default function AdminWorkspaces() {
   return (
     <>
       <style>{`
-        .aw-page { padding: 28px 32px; color: #e7e9ef; }
+        .aw-page { padding: 28px 32px; color: #1c1f2b; }
         .aw-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
-        .aw-title { font-size: 20px; font-weight: 700; color: #f2f3f7; margin: 0; }
-        .aw-sub { font-size: 12.5px; color: #757e94; margin: 4px 0 0; }
-        .aw-search { display: flex; align-items: center; gap: 8px; background: #11141d; border: 1px solid #232a3b; border-radius: 9px; padding: 8px 12px; min-width: 260px; }
-        .aw-search input { background: none; border: none; outline: none; color: #f2f3f7; font-size: 13px; flex: 1; }
-        .aw-search input::placeholder { color: #4c5468; }
-        .aw-search svg { width: 15px; height: 15px; color: #757e94; flex-shrink: 0; }
+        .aw-title { font-size: 20px; font-weight: 700; color: #1c1f2b; margin: 0; }
+        .aw-sub { font-size: 12.5px; color: #6b7280; margin: 4px 0 0; }
+        .aw-search { display: flex; align-items: center; gap: 8px; background: #f7f8fb; border: 1px solid #e1e4ec; border-radius: 9px; padding: 8px 12px; min-width: 260px; transition: border-color .12s, box-shadow .12s; }
+        .aw-search:focus-within { border-color: #7b5ce8; box-shadow: 0 0 0 3px rgba(123,92,232,.12); background: #ffffff; }
+        .aw-search input { background: none; border: none; outline: none; color: #1c1f2b; font-size: 13px; flex: 1; }
+        .aw-search input::placeholder { color: #a0a5b4; }
+        .aw-search svg { width: 15px; height: 15px; color: #8a90a2; flex-shrink: 0; }
 
-        .aw-table-wrap { background: #0b0e16; border: 1px solid #1c2233; border-radius: 12px; overflow: hidden; }
+        .aw-table-wrap { background: #ffffff; border: 1px solid #e7e9f0; border-radius: 12px; overflow: hidden; box-shadow: 0 6px 24px rgba(20,20,50,.06); }
         .aw-table { width: 100%; border-collapse: collapse; }
-        .aw-table th { text-align: left; font-size: 11px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; color: #4c5468; padding: 12px 18px; border-bottom: 1px solid #1c2233; background: #0e121b; }
-        .aw-table td { padding: 14px 18px; font-size: 13px; color: #d5d8e2; border-bottom: 1px solid #161c29; }
+        .aw-table th { text-align: left; font-size: 11px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; color: #9aa0b0; padding: 12px 18px; border-bottom: 1px solid #e7e9f0; background: #f7f8fb; }
+        .aw-table td { padding: 14px 18px; font-size: 13px; color: #2b2f3d; border-bottom: 1px solid #f0f1f5; }
         .aw-table tr:last-child td { border-bottom: none; }
         .aw-row { cursor: pointer; transition: background .1s; }
-        .aw-row:hover { background: #11141d; }
-        .aw-owner-name { font-weight: 600; color: #f2f3f7; }
-        .aw-owner-email { font-size: 11.5px; color: #757e94; }
+        .aw-row:hover { background: #f7f8fb; }
+        .aw-owner-name { font-weight: 600; color: #1c1f2b; }
+        .aw-owner-email { font-size: 11.5px; color: #6b7280; }
         .aw-pill { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 20px; }
-        .aw-pill.ok { background: rgba(15,181,166,.12); color: #34d6c8; border: 1px solid rgba(15,181,166,.3); }
-        .aw-pill.pending { background: rgba(245,166,35,.12); color: #f5a623; border: 1px solid rgba(245,166,35,.3); }
-        .aw-count { font-weight: 600; color: #f2f3f7; }
-        .aw-empty { padding: 60px 20px; text-align: center; color: #757e94; font-size: 13px; }
-        .aw-error { padding: 14px 18px; color: #f18b8b; font-size: 13px; }
-        .aw-pager { display: flex; align-items: center; justify-content: flex-end; gap: 12px; padding: 14px 18px; font-size: 12.5px; color: #757e94; }
-        .aw-pager button { background: #11141d; border: 1px solid #232a3b; color: #d5d8e2; border-radius: 7px; padding: 6px 12px; cursor: pointer; font-size: 12.5px; }
+        .aw-pill.ok { background: rgba(79,184,217,.12); color: #2c96b3; border: 1px solid rgba(79,184,217,.35); }
+        .aw-pill.pending { background: rgba(123,92,232,.1); color: #7b5ce8; border: 1px solid rgba(123,92,232,.3); }
+        .aw-count { font-weight: 600; color: #1c1f2b; }
+        .aw-empty { padding: 60px 20px; text-align: center; color: #6b7280; font-size: 13px; }
+        .aw-error { padding: 14px 18px; color: #c0392b; font-size: 13px; }
+        .aw-pager { display: flex; align-items: center; justify-content: flex-end; gap: 12px; padding: 14px 18px; font-size: 12.5px; color: #6b7280; }
+        .aw-pager button { background: #f7f8fb; border: 1px solid #e1e4ec; color: #2b2f3d; border-radius: 7px; padding: 6px 12px; cursor: pointer; font-size: 12.5px; }
         .aw-pager button:disabled { opacity: .4; cursor: not-allowed; }
       `}</style>
 
