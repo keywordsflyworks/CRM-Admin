@@ -44,50 +44,50 @@ export default function AdminLayout() {
   return (
     <>
       <style>{`
-        .as-shell { display: flex; height: 100vh; overflow: hidden; background: #06070c; font-family: 'Geist', system-ui, sans-serif; }
+        .as-shell { display: flex; height: 100vh; overflow: hidden; background: #f4f5f8; font-family: 'Geist', system-ui, sans-serif; }
         .as-sidebar {
           width: ${W}px; flex-shrink: 0;
-          background: #0b0e16; border-right: 1px solid #1c2233;
+          background: #ffffff; border-right: 1px solid #e7e9f0;
           display: flex; flex-direction: column; height: 100vh; min-height: 0;
           overflow-y: auto; overflow-x: hidden; scroll-behavior: smooth;
           transition: width .2s cubic-bezier(.4,0,.2,1);
         }
         .as-sidebar::-webkit-scrollbar { display: none; }
-        .as-brand { display: flex; align-items: center; gap: 10px; padding: 18px 16px 16px; border-bottom: 1px solid #1c2233; min-height: 57px; flex-shrink: 0; overflow: hidden; white-space: nowrap; }
-        .as-brand-icon { width: 30px; height: 30px; border-radius: 8px; background: linear-gradient(135deg,#f5a623,#d94f4f); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .as-brand { display: flex; align-items: center; gap: 10px; padding: 18px 16px 16px; border-bottom: 1px solid #e7e9f0; min-height: 57px; flex-shrink: 0; overflow: hidden; white-space: nowrap; }
+        .as-brand-icon { width: 30px; height: 30px; border-radius: 8px; background: linear-gradient(135deg,#7b5ce8,#4fb8d9); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
         .as-brand-text { opacity: ${open ? 1 : 0}; transition: opacity .12s; overflow: hidden; }
-        .as-brand-name { font-size: 14px; font-weight: 700; color: #f2f3f7; letter-spacing: -.2px; white-space: nowrap; }
-        .as-brand-sub { font-size: 9.5px; font-weight: 700; color: #f5a623; letter-spacing: .6px; text-transform: uppercase; white-space: nowrap; }
+        .as-brand-name { font-size: 14px; font-weight: 700; color: #1c1f2b; letter-spacing: -.2px; white-space: nowrap; }
+        .as-brand-sub { font-size: 9.5px; font-weight: 700; color: #7b5ce8; letter-spacing: .6px; text-transform: uppercase; white-space: nowrap; }
 
         .as-nav { padding: 10px 0; flex: 1 1 auto; }
-        .as-nav-section { font-size: 10px; font-weight: 700; letter-spacing: .7px; color: #4c5468; text-transform: uppercase; padding: ${open ? "10px 18px 6px" : "10px 0 6px"}; text-align: ${open ? "left" : "center"}; white-space: nowrap; overflow: hidden; }
-        .as-nav-link { display: flex; align-items: center; gap: 9px; padding: ${open ? "8px 18px" : "10px 0"}; justify-content: ${open ? "flex-start" : "center"}; font-size: 13.5px; color: #a2a9bb; text-decoration: none; transition: background .12s, color .12s; white-space: nowrap; }
+        .as-nav-section { font-size: 10px; font-weight: 700; letter-spacing: .7px; color: #9aa0b0; text-transform: uppercase; padding: ${open ? "10px 18px 6px" : "10px 0 6px"}; text-align: ${open ? "left" : "center"}; white-space: nowrap; overflow: hidden; }
+        .as-nav-link { display: flex; align-items: center; gap: 9px; padding: ${open ? "8px 18px" : "10px 0"}; justify-content: ${open ? "flex-start" : "center"}; font-size: 13.5px; color: #4b5163; text-decoration: none; transition: background .12s, color .12s; white-space: nowrap; }
         .as-nav-link svg { width: 16px; height: 16px; flex-shrink: 0; }
-        .as-nav-link:hover { background: #141926; color: #f2f3f7; }
-        .as-nav-link.active { background: rgba(245,166,35,.12); color: #f5a623; font-weight: 600; border-right: 3px solid #f5a623; }
+        .as-nav-link:hover { background: #f7f8fb; color: #1c1f2b; }
+        .as-nav-link.active { background: rgba(123,92,232,.08); color: #7b5ce8; font-weight: 600; border-right: 3px solid #7b5ce8; }
         .as-nav-label { opacity: ${open ? 1 : 0}; transition: opacity .12s; overflow: hidden; }
 
-        .as-user { display: flex; align-items: center; gap: 10px; padding: ${open ? "14px 16px" : "14px 0"}; justify-content: ${open ? "flex-start" : "center"}; border-top: 1px solid #1c2233; flex-shrink: 0; }
-        .as-avatar { width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(135deg,#f5a623,#d94f4f); color: #14151b; font-size: 11.5px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .as-user { display: flex; align-items: center; gap: 10px; padding: ${open ? "14px 16px" : "14px 0"}; justify-content: ${open ? "flex-start" : "center"}; border-top: 1px solid #e7e9f0; flex-shrink: 0; }
+        .as-avatar { width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(135deg,#7b5ce8,#4fb8d9); color: #ffffff; font-size: 11.5px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
         .as-user-info { flex: 1; min-width: 0; opacity: ${open ? 1 : 0}; transition: opacity .12s; }
-        .as-user-name { font-size: 12.5px; font-weight: 600; color: #f2f3f7; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .as-user-email { font-size: 11px; color: #757e94; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .as-logout { background: none; border: none; cursor: pointer; color: #757e94; padding: 4px; border-radius: 6px; opacity: ${open ? 1 : 0}; }
-        .as-logout:hover { background: #141926; color: #f2f3f7; }
+        .as-user-name { font-size: 12.5px; font-weight: 600; color: #1c1f2b; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .as-user-email { font-size: 11px; color: #6b7280; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .as-logout { background: none; border: none; cursor: pointer; color: #6b7280; padding: 4px; border-radius: 6px; opacity: ${open ? 1 : 0}; }
+        .as-logout:hover { background: #f7f8fb; color: #1c1f2b; }
         .as-logout svg { width: 15px; height: 15px; }
 
         .as-main { flex: 1; display: flex; flex-direction: column; overflow: hidden; min-width: 0; }
-        .as-topbar { display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; border-bottom: 1px solid #1c2233; background: #0b0e16; flex-shrink: 0; }
-        .as-menu-btn { width: 34px; height: 34px; border-radius: 8px; border: 1px solid #1c2233; background: #0b0e16; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #a2a9bb; }
-        .as-menu-btn:hover { background: rgba(245,166,35,.12); color: #f5a623; border-color: rgba(245,166,35,.3); }
-        .as-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; letter-spacing: .4px; color: #f5a623; background: rgba(245,166,35,.1); border: 1px solid rgba(245,166,35,.3); padding: 4px 10px; border-radius: 20px; text-transform: uppercase; }
-        .as-content { flex: 1; overflow-y: auto; overflow-x: hidden; background: #06070c; scroll-behavior: smooth; }
+        .as-topbar { display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; border-bottom: 1px solid #e7e9f0; background: #ffffff; flex-shrink: 0; }
+        .as-menu-btn { width: 34px; height: 34px; border-radius: 8px; border: 1px solid #e1e4ec; background: #ffffff; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #4b5163; }
+        .as-menu-btn:hover { background: rgba(123,92,232,.08); color: #7b5ce8; border-color: rgba(123,92,232,.3); }
+        .as-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; letter-spacing: .4px; color: #7b5ce8; background: rgba(123,92,232,.08); border: 1px solid rgba(123,92,232,.25); padding: 4px 10px; border-radius: 20px; text-transform: uppercase; }
+        .as-content { flex: 1; overflow-y: auto; overflow-x: hidden; background: #f4f5f8; scroll-behavior: smooth; }
       `}</style>
 
       <div className="as-shell">
         <aside className="as-sidebar">
           <div className="as-brand">
-            <div className="as-brand-icon"><Icons.shield style={{ width: 16, height: 16, color: "#14151b" }} /></div>
+            <div className="as-brand-icon"><Icons.shield style={{ width: 16, height: 16, color: "#ffffff" }} /></div>
             {open && (
               <div className="as-brand-text">
                 <div className="as-brand-name">KeywordsFly</div>
