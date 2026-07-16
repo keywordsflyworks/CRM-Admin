@@ -4,6 +4,7 @@ import AdminLogin from "./pages/AdminLogin";
 import AdminWorkspaces from "./pages/AdminWorkspaces";
 import AdminWorkspaceDetail from "./pages/AdminWorkspaceDetail";
 import AdminProfile from "./pages/AdminProfile";
+import AdminSupportTickets from "./pages/AdminSupportTickets";
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
           <Route index element={<Navigate to="/workspaces" replace />} />
           <Route path="workspaces" element={<AdminWorkspaces />} />
           <Route path="workspaces/:id" element={<AdminWorkspaceDetail />} />
+          <Route path="support-tickets" element={<AdminSupportTickets />} />
           <Route path="profile" element={<AdminProfile />} />
           <Route path="*" element={<div style={{ padding: 24, color: "#f2f3f7" }}>Not found</div>} />
         </Route>

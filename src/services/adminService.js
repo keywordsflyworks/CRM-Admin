@@ -26,5 +26,40 @@ function getWorkspace(id) {
     .then((res) => res.data);
 }
 
-const adminService = { login, getMe, listWorkspaces, getWorkspace };
+// ─── Support Tickets (cross-workspace) ───────────────────────────────────────
+
+// GET /api/support-tickets?status=&priority=&workspaceId=
+function listTickets(params = {}) {
+  return adminAxiosClient.get("/support-tickets", { params }).then((res) => res.data);
+}
+
+// GET /api/support-tickets/:id
+function getTicket(id) {
+  return adminAxiosClient.get(`/support-tickets/${id}`).then((res) => res.data);
+}
+
+// PUT /api/support-tickets/:id  — status, priority, category, assignedTo
+function updateTicket(id, payload) {
+  return adminAxiosClient.put(`/support-tickets/${id}`, payload).then((res) => res.data);
+}
+
+// POST /api/support-tickets/:id/comments
+function addComment(id, message) {
+  return adminAxiosClient.post(`/support-tickets/${id}/comments`, { message }).then((res) => res.data);
+}
+
+// DELETE /api/support-tickets/:id
+function deleteTicket(id) {
+  return adminAxiosClient.delete(`/support-tickets/${id}`).then((res) => res.data);
+}
+
+// GET /api/support-tickets/unread-count
+function getUnreadCount() {
+  return adminAxiosClient.get("/support-tickets/unread-count").then((res) => res.data);
+}
+
+const adminService = {
+  login, getMe, listWorkspaces, getWorkspace,
+  listTickets, getTicket, updateTicket, addComment, deleteTicket, getUnreadCount,
+};
 export default adminService;
